@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_8f8abe826471fb1c0a2e17a3a573426559a2b20c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\24bccae7772eb4f86b3d8b97588f5800d6327df6\output\jars\libs\rxandroid-1.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="84127ad71f76445b8215afceb38e8b05f58eafa6">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxandroid-1.2.0_f01e6816123f88bd7e2800da99faca59a616ce34\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\671aeaded8103fcdbc9769cd88b905465cbcf8b7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6e1dff7f56b8b8f4fed5fffb66704b97e32c23f0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\libs\universal-image-loader-1.9.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.5_72e74c19d364764ae77c9be577f87d297f3217e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\38f217a06d29dd421b2d5dc3e4c34278c7b48fb2\output\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.2.0_06b2dbabbb365cd9af433dbe0b06ca1efae49ae3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\24bccae7772eb4f86b3d8b97588f5800d6327df6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4e5731833bb233b850b7403f59e83bc086e1dea4">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fc511ca247bb4213b5aad602514a057e7738a365\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\24bccae7772eb4f86b3d8b97588f5800d6327df6\output\jars\libs\BmobSDK_3.5.6_20170705.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d0363e82e75b03f2784bd21add516fd8c1fa03bc">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\BmobSDK_3.5.6_20170705_2bbd422ffd32ea553e128c4501ee1d71e954aa6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.gradle\caches\modules-2\files-2.1\com.github.promeg\tinypinyin\1.0.0\a48301534bbc8eea481f61fa8fbdee80eca49d15\tinypinyin-1.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a48301534bbc8eea481f61fa8fbdee80eca49d15">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\tinypinyin-1.0.0_b5cea6a1266ce4629ab0f891d3ad980419b49599\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8c72a2ad29d3e8a1eb18d1a5fe19ef87922c2db0">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\c7d9e054a72edf427a43c3d7e3e5c63cb8782e82\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="109f0ec452925b46b500e8d28ee2cd2d1a0145a9">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3e7f2f82316c398bf6a37e8313440063c74385a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\24bccae7772eb4f86b3d8b97588f5800d6327df6\output\jars\libs\rxjava-1.1.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="79f0c1e382e8b62e91064ef6b71130dda83f338e">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-1.1.6_9c1360f6302942736e6c02b5fcfdcd69afd9fcbb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.0_91570fefbe3e87ac707674d5bf1852b7976e6ef6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\507f8204a96648c759a827ca37df61213e90e675\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_098daadc586123a3ef083befdfb2ee9bd0bae116\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\f52e645307adde2f5e5c6fd37e75ee6b3751881c\output\jars\libs\BmobNewIM_2.0.9_20170731.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0b5a1d5467bc2aef6db247d5d068608a7370b49a">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\BmobNewIM_2.0.9_20170731_dd30195c509bf80f586e9759f4fb21f7fbbce820\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\f52e645307adde2f5e5c6fd37e75ee6b3751881c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ff50f38f68d287129ad0afa8acfb07735b02c685">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f71a2c7c3d30ff1f0fb59020707d6b7fa81316b7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a0f11839e1f6646e79178161cb222578dcf52769\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\38f217a06d29dd421b2d5dc3e4c34278c7b48fb2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_28b4c51dc94f22dc508ada03d077dc53cd2abf94\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\24bccae7772eb4f86b3d8b97588f5800d6327df6\output\jars\libs\okio-1.12.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c65ee0a604ff98ecaed12b7dccad20fd959026a3">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.12.0_d7768b7a535e5b016d514825d51ec1f16e0c114b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\f52e645307adde2f5e5c6fd37e75ee6b3751881c\output\jars\libs\androidasync-2.1.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e467ee6149cd47eff052f22b1db011048726adc9">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\androidasync-2.1.6_b5b18dd5a04a8fd0d4dcabe64b645dd9a64a2c82\classes.dex" />
+    </item>
+
+</items>
