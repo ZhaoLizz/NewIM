@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
     private SetFragment setFragment;
     ContactFragment contactFragment;
     private Fragment[] fragments;
-    private int index;
+    private int index;  //当前fragment序号
     private int currentTabIndex;
 
     @Override
@@ -111,6 +111,9 @@ public class MainActivity extends BaseActivity {
         initTab();
     }
 
+    /**
+     * 初始化fragment_container布局
+     */
     private void initTab() {
         conversationFragment = new ConversationFragment();
         setFragment = new SetFragment();
@@ -124,6 +127,10 @@ public class MainActivity extends BaseActivity {
                 .show(conversationFragment).commit();
     }
 
+    /**
+     * 选择下方按钮时更新当前页面fragment序号
+     * @param view
+     */
     public void onTabSelect(View view) {
         switch (view.getId()) {
             case R.id.btn_conversation:
@@ -139,6 +146,10 @@ public class MainActivity extends BaseActivity {
         onTabIndex(index);
     }
 
+    /**
+     * 更新fragment显示
+     * @param index 要显示的fragment序号
+     */
     private void onTabIndex(int index) {
         if (currentTabIndex != index) {
             FragmentTransaction trx = getSupportFragmentManager().beginTransaction();
