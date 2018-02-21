@@ -9,7 +9,9 @@ import android.widget.TextView;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.ParentWithNaviActivity.ToolBarListener;
 
-/**封装了导航条的Fragment类均需继承该类
+/**
+ * 封装了导航条的Fragment类均需继承该类
+ *
  * @author :smile
  * @project:ParentWithNaviFragment
  * @date :2015-08-18-14:19
@@ -26,7 +28,7 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
     /**
      * 初始化导航条
      */
-    public void initNaviView(){
+    public void initNaviView() {
         tv_title = getView(R.id.tv_title);
         tv_right = getView(R.id.tv_right);
         tv_left = getView(R.id.tv_left);
@@ -43,7 +45,7 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.tv_left:
-                    if (listener != null){
+                    if (listener != null) {
                         listener.clickLeft();
                     }
                     break;
@@ -64,20 +66,20 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
         this.tv_title.setText(title());
     }
 
-    private void setLeftView(Object obj){
-        if(obj !=null && !obj.equals("")){
+    private void setLeftView(Object obj) {
+        if (obj != null && !obj.equals("")) {
             tv_left.setVisibility(View.VISIBLE);
-            if(obj instanceof Integer){
+            if (obj instanceof Integer) {
                 tv_left.setImageResource(Integer.parseInt(obj.toString()));
-            }else{
+            } else {
                 tv_left.setImageResource(R.drawable.base_action_bar_back_bg_selector);
             }
-        }else{
+        } else {
             tv_left.setVisibility(View.INVISIBLE);
         }
     }
 
-    private void setValue(int id,Object obj){
+    private void setValue(int id, Object obj) {
         if (obj != null && !obj.equals("")) {
             ((TextView) getView(id)).setText("");
             getView(id).setBackgroundDrawable(new BitmapDrawable());
@@ -96,41 +98,57 @@ public abstract class ParentWithNaviFragment extends BaseFragment {
         this.listener = listener;
     }
 
-    /**导航栏标题
+    /**
+     * 导航栏标题
+     *
      * @return
      */
     protected abstract String title();
 
-    /**导航栏右边：可以为string或图片资源id，不是必填项
+    /**
+     * 导航栏右边：可以为string或图片资源id，不是必填项
+     *
      * @return
      */
-    public  Object right(){
+    public Object right() {
         return null;
     }
 
-    /**导航栏左边
+    /**
+     * 导航栏左边
+     *
      * @return
      */
-    public Object left(){return null;}
+    public Object left() {
+        return null;
+    }
 
-    /**设置导航条背景色
+    /**
+     * 设置导航条背景色
+     *
      * @param color
      */
-    public void setNavBackground(int color){
+    public void setNavBackground(int color) {
         ll_navi.setBackgroundColor(color);
     }
 
-    /**设置右边按钮的文字大小
+    /**
+     * 设置右边按钮的文字大小
+     *
      * @param dimenId
      */
-    public void setRightTextSize(float dimenId){
+    public void setRightTextSize(float dimenId) {
         tv_right.setTextSize(dimenId);
     }
 
-    /**设置导航栏监听
+    /**
+     * 设置导航栏监听
+     *
      * @return
      */
-    public ToolBarListener setToolBarListener(){return null;}
+    public ToolBarListener setToolBarListener() {
+        return null;
+    }
 
     protected <T extends View> T getView(int id) {
         return (T) rootView.findViewById(id);

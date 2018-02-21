@@ -13,7 +13,9 @@ import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.bean.User;
 import cn.bmob.v3.BmobUser;
 
-/**封装了导航条的类均需继承该类
+/**
+ * 封装了导航条的类均需继承该类
+ *
  * @author :smile
  * @project:ParentWithNaviActivity
  * @date :2015-08-18-11:29
@@ -25,30 +27,44 @@ public abstract class ParentWithNaviActivity extends BaseActivity {
     public ImageView tv_left;
     public TextView tv_right;
 
-    /**导航栏标题:必填项
+    /**
+     * 导航栏标题:必填项
+     *
      * @return
      */
     protected abstract String title();
 
-    /**导航栏左边：可以为string或图片资源id,非必须
+    /**
+     * 导航栏左边：可以为string或图片资源id,非必须
+     *
      * @return
      */
-    public Object left(){return null;}
+    public Object left() {
+        return null;
+    }
 
-    /**导航栏右边：可以为string或图片资源id,非必须
+    /**
+     * 导航栏右边：可以为string或图片资源id,非必须
+     *
      * @return
      */
-    public Object right(){return null;}
+    public Object right() {
+        return null;
+    }
 
-    /**设置导航栏监听,非必须
+    /**
+     * 设置导航栏监听,非必须
+     *
      * @return
      */
-    public ToolBarListener setToolBarListener(){return null;}
+    public ToolBarListener setToolBarListener() {
+        return null;
+    }
 
     /**
      * 初始化导航条
      */
-    public void initNaviView(){
+    public void initNaviView() {
         tv_title = getView(R.id.tv_title);
         tv_right = getView(R.id.tv_right);
         tv_left = getView(R.id.tv_left);
@@ -67,7 +83,7 @@ public abstract class ParentWithNaviActivity extends BaseActivity {
                 case R.id.tv_left:
                     if (listener == null)
                         finish();
-                    else{
+                    else {
                         listener.clickLeft();
                     }
                     break;
@@ -83,25 +99,25 @@ public abstract class ParentWithNaviActivity extends BaseActivity {
     };
 
     protected void refreshTop() {
-        setLeftView(left()==null ? R.drawable.base_action_bar_back_bg_selector: left());
+        setLeftView(left() == null ? R.drawable.base_action_bar_back_bg_selector : left());
         setValue(R.id.tv_right, right());
         this.tv_title.setText(title());
     }
 
-    private void setLeftView(Object obj){
-        if(obj !=null && !obj.equals("")){
+    private void setLeftView(Object obj) {
+        if (obj != null && !obj.equals("")) {
             tv_left.setVisibility(View.VISIBLE);
-            if(obj instanceof Integer){
+            if (obj instanceof Integer) {
                 tv_left.setImageResource(Integer.parseInt(obj.toString()));
-            }else{
+            } else {
                 tv_left.setImageResource(R.drawable.base_action_bar_back_bg_selector);
             }
-        }else{
+        } else {
             tv_left.setVisibility(View.INVISIBLE);
         }
     }
 
-    protected void setValue(int id,Object obj){
+    protected void setValue(int id, Object obj) {
         if (obj != null && !obj.equals("")) {
             ((TextView) getView(id)).setText("");
             getView(id).setBackgroundDrawable(new BitmapDrawable());
@@ -125,15 +141,17 @@ public abstract class ParentWithNaviActivity extends BaseActivity {
         return (T) findViewById(id);
     }
 
-    public boolean handleBackPressed(){
+    public boolean handleBackPressed() {
         return false;
     }
 
-    /**获取Drawable资源
+    /**
+     * 获取Drawable资源
+     *
      * @param id
      * @return
      */
-    public Drawable getDrawableResources(int id){
+    public Drawable getDrawableResources(int id) {
         return getResources().getDrawable(id);
     }
 
@@ -143,7 +161,9 @@ public abstract class ParentWithNaviActivity extends BaseActivity {
         void clickRight();
     }
 
-    /**启动指定Activity
+    /**
+     * 启动指定Activity
+     *
      * @param target
      * @param bundle
      */
@@ -155,7 +175,7 @@ public abstract class ParentWithNaviActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    public String getCurrentUid(){
+    public String getCurrentUid() {
         return BmobUser.getCurrentUser(User.class).getObjectId();
     }
 }

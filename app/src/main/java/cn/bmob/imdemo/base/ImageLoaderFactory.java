@@ -7,7 +7,8 @@ public class ImageLoaderFactory {
 
     private static volatile ILoader sInstance;
 
-    private ImageLoaderFactory() {}
+    private ImageLoaderFactory() {
+    }
 
     public static ILoader getLoader() {
         if (sInstance == null) {

@@ -12,6 +12,7 @@ import cn.bmob.imdemo.base.UniversalImageLoader;
 import cn.bmob.newim.BmobIM;
 
 /**
+ * 项目配置初始化信息
  * @author :smile
  * @project:BmobIMApplication
  * @date :2016-01-13-10:19

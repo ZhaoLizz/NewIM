@@ -13,7 +13,9 @@ import com.orhanobut.logger.Logger;
 
 import cn.bmob.imdemo.Config;
 
-/**基类
+/**
+ * 基类
+ *
  * @author :smile
  * @project:BaseActivity
  * @date :2016-01-15-18:23
@@ -26,6 +28,7 @@ public class BaseFragment extends Fragment {
 
     protected final static String NULL = "";
     private Toast toast;
+
     public void toast(final Object obj) {
         try {
             runOnMain(new Runnable() {
@@ -33,7 +36,7 @@ public class BaseFragment extends Fragment {
                 @Override
                 public void run() {
                     if (toast == null)
-                        toast = Toast.makeText(getActivity(), NULL,Toast.LENGTH_SHORT);
+                        toast = Toast.makeText(getActivity(), NULL, Toast.LENGTH_SHORT);
                     toast.setText(obj.toString());
                     toast.show();
                 }
@@ -46,11 +49,13 @@ public class BaseFragment extends Fragment {
     public void hideSoftInput(IBinder token) {
         if (token != null) {
             InputMethodManager im = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            im.hideSoftInputFromWindow(token,InputMethodManager.HIDE_NOT_ALWAYS);
+            im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
-    /**启动指定Activity
+    /**
+     * 启动指定Activity
+     *
      * @param target
      * @param bundle
      */
@@ -62,11 +67,13 @@ public class BaseFragment extends Fragment {
         getActivity().startActivity(intent);
     }
 
-    /**Log日志
+    /**
+     * Log日志
+     *
      * @param msg
      */
-    public void log(String msg){
-        if(Config.DEBUG){
+    public void log(String msg) {
+        if (Config.DEBUG) {
             Logger.i(msg);
         }
     }

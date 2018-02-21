@@ -36,6 +36,10 @@ public class RegisterActivity extends ParentWithNaviActivity {
     @Bind(R.id.et_password_again)
     EditText et_password_again;
 
+    /**
+     * NaviActivityBar的标题名称
+     * @return
+     */
     @Override
     protected String title() {
         return "注册";

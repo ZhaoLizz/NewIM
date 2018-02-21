@@ -20,7 +20,9 @@ import org.greenrobot.eventbus.Subscribe;
 import butterknife.ButterKnife;
 import cn.bmob.imdemo.Config;
 
-/**基类
+/**
+ * 基类
+ *
  * @author :smile
  * @project:BaseActivity
  * @date :2016-01-15-18:23
@@ -60,11 +62,12 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @Subscribe
-    public void onEvent(Boolean empty){
+    public void onEvent(Boolean empty) {
 
     }
 
-    protected void initView() {}
+    protected void initView() {
+    }
 
     protected void runOnMain(Runnable runnable) {
         runOnUiThread(runnable);
@@ -72,6 +75,7 @@ public class BaseActivity extends FragmentActivity {
 
     protected final static String NULL = "";
     private Toast toast;
+
     public void toast(final Object obj) {
         try {
             runOnMain(new Runnable() {
@@ -79,7 +83,7 @@ public class BaseActivity extends FragmentActivity {
                 @Override
                 public void run() {
                     if (toast == null)
-                        toast = Toast.makeText(BaseActivity.this, NULL,Toast.LENGTH_SHORT);
+                        toast = Toast.makeText(BaseActivity.this, NULL, Toast.LENGTH_SHORT);
                     toast.setText(obj.toString());
                     toast.show();
                 }
@@ -89,7 +93,7 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    public void startActivity(Class<? extends Activity> target, Bundle bundle,boolean finish) {
+    public void startActivity(Class<? extends Activity> target, Bundle bundle, boolean finish) {
         Intent intent = new Intent();
         intent.setClass(this, target);
         if (bundle != null)
@@ -117,21 +121,25 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    /**隐藏软键盘-一般是EditText.getWindowToken()
+    /**
+     * 隐藏软键盘-一般是EditText.getWindowToken()
+     *
      * @param token
      */
     public void hideSoftInput(IBinder token) {
         if (token != null) {
             InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            im.hideSoftInputFromWindow(token,InputMethodManager.HIDE_NOT_ALWAYS);
+            im.hideSoftInputFromWindow(token, InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
 
-    /**Log日志
+    /**
+     * Log日志
+     *
      * @param msg
      */
-    public void log(String msg){
-        if(Config.DEBUG){
+    public void log(String msg) {
+        if (Config.DEBUG) {
             Logger.i(msg);
         }
     }
