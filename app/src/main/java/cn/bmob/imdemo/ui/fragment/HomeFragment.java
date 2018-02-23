@@ -30,6 +30,7 @@ import butterknife.OnClick;
 import butterknife.OnItemSelected;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.ParentWithNaviFragment;
+import cn.bmob.imdemo.bean.User;
 import cn.bmob.imdemo.util.PermissionUtil;
 
 /**
@@ -57,6 +58,8 @@ public class HomeFragment extends ParentWithNaviFragment {
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
         initNaviView();
         ButterKnife.bind(this, rootView);
+        PermissionUtil.checkPerssion(getContext(), Manifest.permission.CAMERA, REQUEST_CAMERA);
+
 
         return rootView;
     }
@@ -67,7 +70,7 @@ public class HomeFragment extends ParentWithNaviFragment {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (resultCode == getActivity().RESULT_OK) {
-
+                    Logger.wtf(photoUri.getPath() );
                 }
                 break;
         }
@@ -87,7 +90,6 @@ public class HomeFragment extends ParentWithNaviFragment {
 
     @OnClick(R.id.btn_home_camera_publish)
     public void onCameraClick() {
-        PermissionUtil.checkPerssion(getContext(), Manifest.permission.CAMERA, REQUEST_CAMERA);
         File photo = new File(getContext().getExternalCacheDir(), "photo.jpg");
         try {
             if (photo.exists()) {
