@@ -81,6 +81,15 @@
             android:name="Bmob_APP_KEY"
             android:value="e4623d0c00213bb18860e466c83b5791"/>
 
+        <provider
+            android:authorities="cn.bmob.imdemo.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>

@@ -21,6 +21,7 @@ import cn.bmob.imdemo.db.NewFriendManager;
 import cn.bmob.imdemo.event.RefreshEvent;
 import cn.bmob.imdemo.ui.fragment.ContactFragment;
 import cn.bmob.imdemo.ui.fragment.ConversationFragment;
+import cn.bmob.imdemo.ui.fragment.HomeFragment;
 import cn.bmob.imdemo.ui.fragment.SetFragment;
 import cn.bmob.imdemo.util.IMMLeaks;
 import cn.bmob.newim.BmobIM;
@@ -41,10 +42,12 @@ import cn.bmob.v3.exception.BmobException;
  */
 public class MainActivity extends BaseActivity {
 
+    @Bind(R.id.btn_home)
+    TextView btn_home;
+    @Bind(R.id.btn_list)
+    TextView btn_list;
     @Bind(R.id.btn_conversation)
     TextView btn_conversation;
-    @Bind(R.id.btn_set)
-    TextView btn_set;
     @Bind(R.id.btn_contact)
     TextView btn_contact;
 
@@ -56,6 +59,7 @@ public class MainActivity extends BaseActivity {
     private TextView[] mTabs;
     private ConversationFragment conversationFragment;
     private SetFragment setFragment;
+    private HomeFragment homeFragment;
     ContactFragment contactFragment;
     private Fragment[] fragments;
     private int index;  //当前fragment序号
@@ -103,10 +107,11 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         super.initView();
-        mTabs = new TextView[3];
-        mTabs[0] = btn_conversation;
-        mTabs[1] = btn_contact;
-        mTabs[2] = btn_set;
+        mTabs = new TextView[4];
+        mTabs[0] = btn_home;
+        mTabs[1] = btn_list;
+        mTabs[2] = btn_conversation;
+        mTabs[3] = btn_contact;
         mTabs[0].setSelected(true);
         initTab();
     }
@@ -116,15 +121,16 @@ public class MainActivity extends BaseActivity {
      */
     private void initTab() {
         conversationFragment = new ConversationFragment();
-        setFragment = new SetFragment();
+//        setFragment = new SetFragment();
         contactFragment = new ContactFragment();
-        fragments = new Fragment[]{conversationFragment, contactFragment, setFragment};
+        homeFragment = new HomeFragment();
+        fragments = new Fragment[]{homeFragment,null,conversationFragment, contactFragment};
         getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, homeFragment)
                 .add(R.id.fragment_container, conversationFragment).
                 add(R.id.fragment_container, contactFragment)
-                .add(R.id.fragment_container, setFragment)
-                .hide(setFragment).hide(contactFragment)
-                .show(conversationFragment).commit();
+                .hide(conversationFragment).hide(contactFragment)
+                .show(homeFragment).commit();
     }
 
     /**
@@ -133,14 +139,17 @@ public class MainActivity extends BaseActivity {
      */
     public void onTabSelect(View view) {
         switch (view.getId()) {
-            case R.id.btn_conversation:
+            case R.id.btn_home:
                 index = 0;
                 break;
-            case R.id.btn_contact:
+            case R.id.btn_list:
                 index = 1;
                 break;
-            case R.id.btn_set:
+            case R.id.btn_conversation:
                 index = 2;
+                break;
+            case R.id.btn_contact:
+                index = 3;
                 break;
         }
         onTabIndex(index);

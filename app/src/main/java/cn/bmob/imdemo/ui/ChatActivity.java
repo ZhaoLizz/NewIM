@@ -38,7 +38,7 @@ import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.adapter.ChatAdapter;
 import cn.bmob.imdemo.adapter.OnRecyclerViewListener;
 import cn.bmob.imdemo.base.ParentWithNaviActivity;
-import cn.bmob.imdemo.util.Util;
+import cn.bmob.imdemo.util.PermissionUtil;
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMAudioMessage;
 import cn.bmob.newim.bean.BmobIMConversation;
@@ -286,7 +286,7 @@ public class ChatActivity extends ParentWithNaviActivity implements MessageListH
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    if (!Util.checkSdCard()) {
+                    if (!PermissionUtil.checkSdCard()) {
                         toast("发送语音需要sdcard支持！");
                         return false;
                     }
