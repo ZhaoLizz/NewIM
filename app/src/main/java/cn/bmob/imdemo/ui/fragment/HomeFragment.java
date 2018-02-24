@@ -31,6 +31,7 @@ import butterknife.OnItemSelected;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.ParentWithNaviFragment;
 import cn.bmob.imdemo.bean.User;
+import cn.bmob.imdemo.ui.PublishActivity;
 import cn.bmob.imdemo.util.PermissionUtil;
 
 /**
@@ -40,6 +41,7 @@ import cn.bmob.imdemo.util.PermissionUtil;
 public class HomeFragment extends ParentWithNaviFragment {
     private Uri photoUri;
     private static final int REQUEST_CAMERA = 1;
+    private static final String TAG = "HomeFragment";
 
     @Bind(R.id.btn_home_camera_publish)
     TextView btn_home_camera_publish;
@@ -59,8 +61,6 @@ public class HomeFragment extends ParentWithNaviFragment {
         initNaviView();
         ButterKnife.bind(this, rootView);
         PermissionUtil.checkPerssion(getContext(), Manifest.permission.CAMERA, REQUEST_CAMERA);
-
-
         return rootView;
     }
 
@@ -70,7 +70,11 @@ public class HomeFragment extends ParentWithNaviFragment {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (resultCode == getActivity().RESULT_OK) {
-                    Logger.wtf(photoUri.getPath() );
+                    if (photoUri != null) {
+                        Intent intent = new Intent(getActivity(), PublishActivity.class);
+                        intent.putExtra(Intent.EXTRA_ORIGINATING_URI, photoUri);
+                        startActivity(intent);
+                    }
                 }
                 break;
         }
@@ -102,10 +106,10 @@ public class HomeFragment extends ParentWithNaviFragment {
         }
         if (Build.VERSION.SDK_INT >= 24) {
             photoUri = FileProvider.getUriForFile(getContext(), "cn.bmob.imdemo.fileprovider", photo);
+//            photoUri = Uri.fromFile(photo);
         } else {
             photoUri = Uri.fromFile(photo);
         }
-
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
         startActivityForResult(intent, REQUEST_CAMERA);

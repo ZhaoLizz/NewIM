@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/publish_good_img"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/publish_good_name_tv"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_name"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:text="无线鼠标"/>
+
+    <TextView
+        android:id="@+id/publish_good_category_tv"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/publish_type"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:text="电子设备"/>
+
+    <TextView
+        android:id="@+id/publish_good_time_tv"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/publish_time"
+        android:gravity="center"
+        android:paddingLeft="40dp"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        tools:text="2017年11月15日 13：20"/>
+
+    <TextView
+        android:id="@+id/publish_good_location_tv"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/publish_location"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:text="中北大学图书馆"/>
+
+    <Button
+        android:id="@+id/publish_good_publish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/publish"/>
+
+
+</LinearLayout>
