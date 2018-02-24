@@ -27,6 +27,8 @@ import cn.bmob.imdemo.Config;
  * @project:BaseActivity
  * @date :2016-01-15-18:23
  */
+
+
 public class BaseActivity extends FragmentActivity {
 
     @Override

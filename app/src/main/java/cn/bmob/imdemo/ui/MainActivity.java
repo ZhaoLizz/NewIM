@@ -22,6 +22,7 @@ import cn.bmob.imdemo.event.RefreshEvent;
 import cn.bmob.imdemo.ui.fragment.ContactFragment;
 import cn.bmob.imdemo.ui.fragment.ConversationFragment;
 import cn.bmob.imdemo.ui.fragment.HomeFragment;
+import cn.bmob.imdemo.ui.fragment.ListFragment;
 import cn.bmob.imdemo.ui.fragment.SetFragment;
 import cn.bmob.imdemo.util.IMMLeaks;
 import cn.bmob.newim.BmobIM;
@@ -61,6 +62,7 @@ public class MainActivity extends BaseActivity {
     private SetFragment setFragment;
     private HomeFragment homeFragment;
     ContactFragment contactFragment;
+    private ListFragment listFragment;
     private Fragment[] fragments;
     private int index;  //当前fragment序号
     private int currentTabIndex;
@@ -124,17 +126,22 @@ public class MainActivity extends BaseActivity {
 //        setFragment = new SetFragment();
         contactFragment = new ContactFragment();
         homeFragment = new HomeFragment();
-        fragments = new Fragment[]{homeFragment,null,conversationFragment, contactFragment};
+        //listFragment已加
+        listFragment = ListFragment.newInstance();
+
+        fragments = new Fragment[]{homeFragment, listFragment, conversationFragment, contactFragment};
         getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_container, listFragment)
+                .add(R.id.fragment_container, conversationFragment)
+                .add(R.id.fragment_container, contactFragment)
                 .add(R.id.fragment_container, homeFragment)
-                .add(R.id.fragment_container, conversationFragment).
-                add(R.id.fragment_container, contactFragment)
-                .hide(conversationFragment).hide(contactFragment)
+                .hide(conversationFragment).hide(contactFragment).hide(listFragment)
                 .show(homeFragment).commit();
     }
 
     /**
      * 选择下方按钮时更新当前页面fragment序号
+     *
      * @param view
      */
     public void onTabSelect(View view) {
@@ -157,8 +164,10 @@ public class MainActivity extends BaseActivity {
 
     /**
      * 更新fragment显示
+     *
      * @param index 要显示的fragment序号
      */
+
     private void onTabIndex(int index) {
         if (currentTabIndex != index) {
             FragmentTransaction trx = getSupportFragmentManager().beginTransaction();
