@@ -3,6 +3,7 @@ package cn.bmob.imdemo.ui.fragment;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -39,9 +40,9 @@ import cn.bmob.imdemo.util.PermissionUtil;
  */
 
 public class HomeFragment extends ParentWithNaviFragment {
-    private Uri photoUri;
     private static final int REQUEST_CAMERA = 1;
     private static final String TAG = "HomeFragment";
+    public static final String EXTRA_BITMAP = "extra_bitmap";
 
     @Bind(R.id.btn_home_camera_publish)
     TextView btn_home_camera_publish;
@@ -70,10 +71,13 @@ public class HomeFragment extends ParentWithNaviFragment {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (resultCode == getActivity().RESULT_OK) {
-                    if (photoUri != null) {
-                        Intent intent = new Intent(getActivity(), PublishActivity.class);
-                        intent.putExtra(Intent.EXTRA_ORIGINATING_URI, photoUri);
-                        startActivity(intent);
+                    if (data != null) {
+                        if (data.hasExtra("data")) {
+                            Bitmap thumbnail = data.getParcelableExtra("data");
+                            Intent intent = new Intent(getActivity(), PublishActivity.class);
+                            intent.putExtra(EXTRA_BITMAP, thumbnail);
+                            startActivity(intent);
+                        }
                     }
                 }
                 break;
@@ -94,24 +98,24 @@ public class HomeFragment extends ParentWithNaviFragment {
 
     @OnClick(R.id.btn_home_camera_publish)
     public void onCameraClick() {
-        File photo = new File(getContext().getExternalCacheDir(), "photo.jpg");
-        try {
-            if (photo.exists()) {
-                photo.delete();
-            } else {
-                photo.createNewFile();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (Build.VERSION.SDK_INT >= 24) {
-            photoUri = FileProvider.getUriForFile(getContext(), "cn.bmob.imdemo.fileprovider", photo);
+//        File photo = new File(getContext().getExternalCacheDir(), "photo.jpg");
+//        try {
+//            if (photo.exists()) {
+//                photo.delete();
+//            } else {
+//                photo.createNewFile();
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        if (Build.VERSION.SDK_INT >= 24) {
+//            photoUri = FileProvider.getUriForFile(getContext(), "cn.bmob.imdemo.fileprovider", photo);
+////            photoUri = Uri.fromFile(photo);
+//        } else {
 //            photoUri = Uri.fromFile(photo);
-        } else {
-            photoUri = Uri.fromFile(photo);
-        }
+//        }
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+//        intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
         startActivityForResult(intent, REQUEST_CAMERA);
     }
 

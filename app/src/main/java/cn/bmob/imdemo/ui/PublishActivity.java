@@ -1,22 +1,25 @@
 package cn.bmob.imdemo.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.orhanobut.logger.Logger;
 
 import butterknife.Bind;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.BaseActivity;
+import cn.bmob.imdemo.ui.fragment.HomeFragment;
 import cn.bmob.imdemo.util.ViewUtil;
 
 
 public class PublishActivity extends BaseActivity {
-    Uri mPhotoUri;
+    private Bitmap mPhotoBitmap;
 
     @Bind(R.id.publish_good_img)
     ImageView img_publish_good;
@@ -42,9 +45,9 @@ public class PublishActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        mPhotoUri = getIntent().getParcelableExtra(Intent.EXTRA_ORIGINATING_URI);
-        Logger.d(mPhotoUri.toString());
-        ViewUtil.setPicture(mPhotoUri, R.mipmap.default_head, img_publish_good, null);
-
+        mPhotoBitmap = getIntent().getParcelableExtra(HomeFragment.EXTRA_BITMAP);
+        if (mPhotoBitmap != null) {
+            img_publish_good.setImageBitmap(mPhotoBitmap);
+        }
     }
 }
