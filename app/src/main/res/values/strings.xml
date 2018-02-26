@@ -49,4 +49,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_user_info">UserInfoActivity</string>
 
+    <string name="list_drop_menu_search">失物搜索</string>
 </resources>

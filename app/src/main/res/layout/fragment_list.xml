@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,18 +9,29 @@
         android:id="@+id/ll"
         layout="@layout/include_navi" />
 
-    <LinearLayout
+    <cn.bmob.imdemo.ui.dropmenu.HorizontalDropDownMenu
+        android:id="@+id/list_fragment_horizontaldropdownmenu"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#e45151">
+        android:layout_height="match_parent"
+        app:dddividerColor="@color/gray"
+        app:ddmaskColor="@color/mask_color"
+        app:ddmenuBackgroundColor="@color/white"
+        app:ddmenuMenuHeightPercent="0.5"
+        app:ddmenuSelectedIcon="@drawable/ic_selected_arrow_up_black_24dp"
+        app:ddmenuTextSize="13sp"
+        app:ddmenuUnselectedIcon="@drawable/ic_unseleted_down_black_24dp"
+        app:ddtextSelectedColor="@color/drop_down_menu_selected_color"
+        app:ddtextUnselectedColor="@color/drop_down_menu_unselected_color"
+        app:ddunderlineColor="@color/gray">
 
-    </LinearLayout>
+    </cn.bmob.imdemo.ui.dropmenu.HorizontalDropDownMenu>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rc_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rc_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
 
 </LinearLayout>
