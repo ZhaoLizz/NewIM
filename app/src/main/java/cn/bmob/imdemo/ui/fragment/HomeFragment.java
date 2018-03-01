@@ -80,7 +80,6 @@ public class HomeFragment extends ParentWithNaviFragment {
                         try {
                             bitmap = BitmapFactory.decodeStream(getContext().getContentResolver().openInputStream(photoUri));
                             bytes = RecognizeUtil.bitmap2bytes(bitmap,30);
-                            Logger.d("bitmap byte size: " + bytes.length);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

@@ -118,7 +118,6 @@ public class RecognizeUtil {
     }
 
 
-
     /***
      *
      * @param body 发送的json
@@ -205,6 +204,7 @@ public class RecognizeUtil {
 
     /**
      * 文字识别
+     *
      * @param jsonBody
      * @return
      */
@@ -226,7 +226,6 @@ public class RecognizeUtil {
                 result.append(new String(response.body().bytes(), Constants.CLOUDAPI_ENCODING));
             }
         });
-        Logger.json(result.toString());
         return result.toString();
     }
 
@@ -258,7 +257,12 @@ public class RecognizeUtil {
         return result;
     }
 
-    public static Map<String,String> parseCharJson(String json) {
+    /**
+     * 解析校园卡识别返回的json
+     * @param json
+     * @return
+     */
+    public static Map<String, String> parseCharJson(String json) {
         Map<String, String> cardData = new HashMap<>();
         cardData.put("name", "未成功识别");
         cardData.put("number", "未成功识别");
@@ -268,12 +272,25 @@ public class RecognizeUtil {
             for (OCRCharDataJson.Ret ret : data.getRet()) {
                 if (ret != null) {
                     String message = ret.getWord();
+                    Log.d("card", message);
                     if (message.contains("名") || message.contains("姓")) {
-                        cardData.put("name", message);
-                    } else if (message.contains("号") || message.contains("学")) {
-                        cardData.put("number", message);
-                    } else if (message.contains("院") || message.contains("系")) {
-                        cardData.put("college", message);
+                        if (message.contains(":")) {
+                            cardData.put("name", message.substring(message.lastIndexOf(":") + 1));
+                        } else {
+                            cardData.put("name", message);
+                        }
+                    } else if (message.contains("号")) {
+                        if (message.contains(":")) {
+                            cardData.put("number", message.substring(message.lastIndexOf(":") + 1));
+                        } else {
+                            cardData.put("number", message);
+                        }
+                    } else if (message.contains("院")) {
+                        if (message.contains(":")) {
+                            cardData.put("college", message.substring(message.lastIndexOf(":") + 1));
+                        } else {
+                            cardData.put("college", message);
+                        }
                     }
                 } else {
                     Logger.d("ret == null");

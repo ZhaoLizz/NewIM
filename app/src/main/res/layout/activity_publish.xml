@@ -11,7 +11,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         tools:src="@drawable/about_top_bg"/>
 
     <LinearLayout
@@ -93,6 +93,70 @@
 
         <TextView
             android:id="@+id/publish_good_location_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="中北大学厕所坑"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/publish_time_layout"
+        android:layout_width="313dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_text_background"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/publish_4st_l_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/publish_time"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/publish_4st_r_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="2018年3月1日 13:20"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/publish_location_layout"
+        android:layout_width="313dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_text_background"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/publish_5st_l_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/publish_location"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/publish_5st_r_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
