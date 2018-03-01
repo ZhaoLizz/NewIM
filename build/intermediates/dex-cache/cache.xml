@@ -12,21 +12,30 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="85ff4f74506fcf91aa4fb486d89dbcbee70110a7">
-        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_a0f11839e1f6646e79178161cb222578dcf52769\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\libs\sun.misc.BASE64Decoder.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="acd93e3727886196f9b8434279ff445ba8611186">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\2\sun.misc.BASE64Decoder_098ad19a3a13745f3711b4a0988f47feee07176e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="85ff4f74506fcf91aa4fb486d89dbcbee70110a7">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
     </item>
 
 </items>

@@ -112,6 +112,7 @@
     <orderEntry type="library" exported="" name="support-media-compat-26.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" name="bmob-sdk-3.5.6" level="project" />
     <orderEntry type="library" exported="" name="design-26.0.0-alpha1" level="project" />
+    <orderEntry type="library" exported="" name="sun.misc.BASE64Decoder" level="project" />
     <orderEntry type="library" exported="" name="glide-3.7.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-26.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
