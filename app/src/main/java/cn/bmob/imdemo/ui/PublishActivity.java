@@ -1,13 +1,14 @@
 package cn.bmob.imdemo.ui;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,23 +52,25 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
-        initView();
-
     }
+
 
     @Override
     protected void initView() {
-        mPhotoBitmap = getIntent().getParcelableExtra(HomeFragment.EXTRA_BITMAP);
+        byte[] bitmapByte = getIntent().getByteArrayExtra(HomeFragment.EXTRA_BITMAP_BYTE);
+        mPhotoBitmap = BitmapFactory.decodeByteArray(bitmapByte, 0, bitmapByte.length);
         if (mPhotoBitmap != null) {
             img_publish_good.setImageBitmap(mPhotoBitmap);
+            Logger.d("bitmap size: " + String.valueOf(mPhotoBitmap.getRowBytes()));
             recognizeImage(this, mPhotoBitmap);
+        } else {
+            Logger.d("mPhotoBitmap is null");
         }
     }
 
     private void recognizeImage(RecognizeUtil.RecognizeListener listener, Bitmap bitmap) {
         listener.onRecognize(bitmap);
     }
-
 
     @Override
     public void onRecognize(final Bitmap bitmap) {

@@ -1,6 +1,7 @@
 package cn.bmob.imdemo.util;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.util.Log;
 
@@ -8,6 +9,7 @@ import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -90,7 +92,7 @@ public class RecognizeUtil {
 
 
     /**
-     * 把bitmap文件压缩后base64编码,然后构造为json
+     * 把bitmap文件压缩后base64编码
      *
      * @param bitmap
      * @param compressRate 压缩率
@@ -104,6 +106,18 @@ public class RecognizeUtil {
 //        String json = "{\"type\":1,\"content\":" + "\"" + content + "\"" + "}";
         return content;
     }
+
+    /**
+     * 压缩bitmap
+     */
+    public static byte[] bitmap2bytes(Bitmap image, int compressRate) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.JPEG, compressRate, baos);//质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
+        byte[] bytes = baos.toByteArray();
+        return bytes;
+    }
+
+
 
     /***
      *
@@ -215,7 +229,6 @@ public class RecognizeUtil {
         Logger.json(result.toString());
         return result.toString();
     }
-
 
 
     /**
