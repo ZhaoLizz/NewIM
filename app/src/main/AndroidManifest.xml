@@ -9,6 +9,7 @@
 
      
 
+
     <!-- TODO 1.4、配置IM SDK需要的权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- 监听网络的变化 -->
@@ -59,6 +60,7 @@
 
 
          
+
 
         <!-- TODO 集成：1.5、配置IM SDK需要的广播和服务 -->
         <receiver android:name="cn.bmob.newim.core.ConnectChangeReceiver">

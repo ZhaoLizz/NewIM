@@ -46,8 +46,13 @@
     <string name="voice_seconds_tips">还可以说%1$s秒</string>
     <string name="voice_short_tips">录音时间太短</string>
 
+    <string name="publish_name">失物名称</string>
+    <string name="publish_time">寻获时间</string>
+    <string name="publish_location">寻获地点</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_user_info">UserInfoActivity</string>
     <string name="title_activity_publish">PublishActivity</string>
+
 
 </resources>

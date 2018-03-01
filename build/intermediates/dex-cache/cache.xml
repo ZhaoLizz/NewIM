@@ -21,6 +21,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="107f898453536a6727ca8015dd22920320fa9f08">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\a6100890\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.11.0_a297b45a47590c9ea0beba0284efc4df1bb96beb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\libs\sun.misc.BASE64Decoder.jar"
         jumboMode="true"
         optimize="true"
@@ -30,12 +48,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\a6100890\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="85ff4f74506fcf91aa4fb486d89dbcbee70110a7">
-        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.6.0_afd6bbf1b6d64fc42ded05061272239d5a270081\classes.dex" />
     </item>
 
 </items>
