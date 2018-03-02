@@ -9,29 +9,32 @@ import cn.bmob.v3.datatype.BmobFile;
  * Created by a6100890 on 2018/3/1.
  */
 
-public class PhotoData extends BmobObject {
+public class SchoolCardData extends BmobObject {
     private BmobFile photo;
-    private String itemName;
+    private String name;
+    private String number;
+    private String college;
     private Date time;
     private String location;
     private User user;
 
-    private static PhotoData instance = new PhotoData();
-
-    private PhotoData() {
+    private SchoolCardData() {
     }
 
-    public static PhotoData getInstance() {
+    private static SchoolCardData instance = new SchoolCardData();
+
+    public static SchoolCardData getInstance() {
         return instance;
     }
 
     public static void reset() {
         instance.setPhoto(null);
-        instance.setItemName(null);
+        instance.setName(null);
+        instance.setNumber(null);
+        instance.setCollege(null);
         instance.setTime(null);
-        instance.setLocation(null);
         instance.setUser(null);
-
+        instance.setLocation(null);
     }
 
     public BmobFile getPhoto() {
@@ -42,12 +45,28 @@ public class PhotoData extends BmobObject {
         this.photo = photo;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getName() {
+        return name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 
     public Date getTime() {
@@ -72,9 +91,5 @@ public class PhotoData extends BmobObject {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public static void setInstance(PhotoData instance) {
-        PhotoData.instance = instance;
     }
 }

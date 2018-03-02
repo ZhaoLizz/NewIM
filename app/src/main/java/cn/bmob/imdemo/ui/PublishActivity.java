@@ -13,17 +13,30 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.BaseActivity;
 import cn.bmob.imdemo.bean.BitmapBodyJson;
+import cn.bmob.imdemo.bean.PhotoData;
+import cn.bmob.imdemo.bean.SchoolCardData;
+import cn.bmob.imdemo.bean.User;
 import cn.bmob.imdemo.ui.fragment.HomeFragment;
 import cn.bmob.imdemo.util.RecognizeUtil;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UploadFileListener;
 
 
 public class PublishActivity extends BaseActivity implements RecognizeUtil.RecognizeListener {
@@ -53,13 +66,27 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
     TextView tv_3st_l;
 
     private Bitmap mPhotoBitmap;
+    private File mPhotoFile;
     private static final String TAG = "PublishActivity";
     public static final String EXTRA_BITMAP_STRING = "extra_bitmap_string";
     public static final String EXTRA_BITMAP = "extra_bitmap";
+    private static int mPhotoCategory = -1;
+    private static final int CATEGORY_ITEM = 1;
+    private static final int CATEGORY_SCHOOL = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        byte[] bitmapByte = getIntent().getByteArrayExtra(HomeFragment.EXTRA_BITMAP_BYTE);
+        mPhotoBitmap = BitmapFactory.decodeByteArray(bitmapByte, 0, bitmapByte.length);
+        try {
+            mPhotoFile = new File(getExternalCacheDir(), "photo_file.jpg");
+            new BufferedOutputStream(new FileOutputStream(mPhotoFile)).write(bitmapByte);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         setContentView(R.layout.activity_publish);
         ButterKnife.bind(this);
     }
@@ -67,8 +94,6 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
 
     @Override
     protected void initView() {
-        byte[] bitmapByte = getIntent().getByteArrayExtra(HomeFragment.EXTRA_BITMAP_BYTE);
-        mPhotoBitmap = BitmapFactory.decodeByteArray(bitmapByte, 0, bitmapByte.length);
         if (mPhotoBitmap != null) {
             img_publish_good.setImageBitmap(mPhotoBitmap);
             Toast.makeText(this, "正在识别图片信息", Toast.LENGTH_LONG).show();
@@ -88,7 +113,9 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
             @Override
             public void run() {
                 SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日  HH:mm");
-                final String curTime = format.format(new Date(System.currentTimeMillis()));
+                Date curDate = new Date(System.currentTimeMillis());
+                String curTime = format.format(curDate);
+                String location = "中北大学主楼";
 
                 String bitmapStr = RecognizeUtil.Bitmap2Str(bitmap, 100);
                 String jsonBody = new Gson().toJson(new BitmapBodyJson(bitmapStr));
@@ -99,7 +126,7 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                     e.printStackTrace();
                 }
                 final String itemName = RecognizeUtil.parseItemJson(jsonResult);
-                updataItemUI(itemName, "中北大学主楼", curTime);
+                updataItemUI(itemName, location, curTime);
 
                 //识别校园卡信息
                 if (itemName.equals("校园卡")) {
@@ -109,6 +136,27 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                     if (cardData != null) {
                         updataSchoolCardUI(cardData.get("name"), cardData.get("number"), cardData.get("college"), curTime, "中北大学主楼");
                     }
+
+                    mPhotoCategory = CATEGORY_SCHOOL;
+                    SchoolCardData schoolCardData = SchoolCardData.getInstance();
+                    schoolCardData.reset();
+                    schoolCardData.setName(cardData.get("name"));
+                    schoolCardData.setUser(BmobUser.getCurrentUser(User.class));
+                    schoolCardData.setNumber(cardData.get("number"));
+                    schoolCardData.setCollege(cardData.get("college"));
+                    schoolCardData.setTime(curDate);
+                    schoolCardData.setPhoto(new BmobFile(mPhotoFile));
+                    schoolCardData.setLocation(location);
+                } else {
+                    //通识物品
+                    mPhotoCategory = CATEGORY_ITEM;
+                    PhotoData photoData = PhotoData.getInstance();
+                    photoData.reset();
+                    photoData.setPhoto(new BmobFile(mPhotoFile));
+                    photoData.setItemName(itemName);
+                    photoData.setLocation(location);
+                    photoData.setTime(curDate);
+                    photoData.setUser(BmobUser.getCurrentUser(User.class));
                 }
             }
         }).start();
@@ -146,6 +194,61 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                 tv_location.setText(location);
             }
         });
+    }
+
+    @OnClick(R.id.publish_good_publish_btn)
+    public void onPublishClick() {
+        Toast.makeText(this, "正在上传至服务器...", Toast.LENGTH_SHORT).show();
+        switch (mPhotoCategory) {
+            case CATEGORY_ITEM:
+                PhotoData.getInstance().getPhoto().uploadblock(new UploadFileListener() {
+                    @Override
+                    public void done(BmobException e) {
+                        if (e == null) {
+                            PhotoData.getInstance().save(new SaveListener<String>() {
+                                @Override
+                                public void done(String s, BmobException e) {
+                                    if (e == null) {
+                                        Toast.makeText(PublishActivity.this, "招领启事发布成功!", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(PublishActivity.this, "上传失败!请检查网络状态", Toast.LENGTH_SHORT).show();
+                                        Logger.e(e.getMessage());
+                                    }
+                                }
+                            });
+                        } else {
+                            Logger.e(e.getMessage());
+                        }
+
+                    }
+                });
+                break;
+
+            case CATEGORY_SCHOOL:
+                SchoolCardData.getInstance().getPhoto().uploadblock(new UploadFileListener() {
+                    @Override
+                    public void done(BmobException e) {
+                        if (e == null) {
+                            SchoolCardData.getInstance().save(new SaveListener<String>() {
+                                @Override
+                                public void done(String s, BmobException e) {
+                                    if (e == null) {
+                                        Toast.makeText(PublishActivity.this, "招领启事发布成功!", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(PublishActivity.this, "上传失败!请检查网络状态", Toast.LENGTH_SHORT).show();
+                                        Logger.e(e.getMessage());
+                                    }
+                                }
+                            });
+                        } else {
+                            Logger.e(e.getMessage());
+                        }
+                    }
+                });
+                break;
+        }
     }
 
 
