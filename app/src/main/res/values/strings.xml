@@ -49,6 +49,8 @@
     <string name="publish_name">失物名称</string>
     <string name="publish_time">寻获时间</string>
     <string name="publish_location">寻获地点</string>
+    <string name="publish_sex">性别</string>
+    <string name="publish_nation">民族</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_user_info">UserInfoActivity</string>

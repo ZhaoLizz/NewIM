@@ -31,8 +31,11 @@ import javax.crypto.spec.SecretKeySpec;
 import Decoder.BASE64Encoder;
 import cn.bmob.imdemo.Config;
 import cn.bmob.imdemo.bean.BitmapBodyJson;
+import cn.bmob.imdemo.bean.IdCardData;
 import cn.bmob.imdemo.bean.ImageBody;
 import cn.bmob.imdemo.bean.OCRCharDataJson;
+import cn.bmob.imdemo.bean.OCRIdCardFaceDataJson;
+import cn.bmob.imdemo.bean.OCRIdCardResultJson;
 import cn.bmob.imdemo.bean.Tags;
 import cn.bmob.imdemo.constant.Constants;
 import okhttp3.Call;
@@ -98,7 +101,7 @@ public class RecognizeUtil {
      * @param compressRate 压缩率
      * @return
      */
-    public static String Bitmap2Str(Bitmap bitmap, int compressRate) {
+    public static String bitmap2Str(Bitmap bitmap, int compressRate) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, compressRate, baos);
         byte[] bitmapByte = baos.toByteArray();
@@ -208,7 +211,7 @@ public class RecognizeUtil {
      * @param jsonBody
      * @return
      */
-    public static String sendCharPost(String jsonBody) {
+    public static String readTextImg(String jsonBody) {
         String getPath = "/api/predict/ocr_general";
         final StringBuilder result = new StringBuilder();
         HttpUtil.getInstance().httpPostBytes(Config.ChAR_BASE_URL, getPath, null, null, jsonBody.getBytes(Constants.CLOUDAPI_ENCODING), null, new Callback() {
@@ -229,6 +232,28 @@ public class RecognizeUtil {
         return result.toString();
     }
 
+    public static String readIdCardImg(String base64Img) {
+        String body = "{\"inputs\":[{\"image\":{\"dataType\":50,\"dataValue\":\"" + base64Img + "\"},\"configure\":{\"dataType\":50,\"dataValue\":\"{\\\"side\\\":\\\"" + "face" + "\\\"}\"}}]}";
+        String getPath = "/rest/160601/ocr/ocr_idcard.json";
+        final StringBuilder result = new StringBuilder();
+        HttpUtil.getInstance().httpPostBytes(Config.ID_CARD_BASE_URL, getPath, null, null, body.getBytes(Constants.CLOUDAPI_ENCODING), null, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Logger.e(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.code() != 200) {
+                    Logger.d("OCR", result.append("错误原因：").append(response.header("X-Ca-Error-Message")).append(Constants.CLOUDAPI_LF).append(Constants.CLOUDAPI_LF).toString());
+                    return;
+                }
+                result.append(new String(response.body().bytes(), Constants.CLOUDAPI_ENCODING));
+            }
+        });
+        return result.toString();
+    }
+
 
     /**
      * 解析通识物品的Json
@@ -238,18 +263,23 @@ public class RecognizeUtil {
         String result = "";
         List<Tags> imageTags;
         if (json != null) {
-            imageTags = gson.fromJson(json, ImageBody.class).getTags();
-            if (imageTags.size() != 0) {
-                //调参权重
-                for (Tags tag : imageTags) {
-                    String value = tag.getValue();
-                    //校园卡
-                    if (value.equals("名片") || value.equals("香烟") || value.equals("菜单") || value.equals("创可贴")) {
-                        result = "校园卡";
-                        return result;
+            ImageBody imageBody = gson.fromJson(json, ImageBody.class);
+            if (imageBody != null) {
+                imageTags = imageBody.getTags();
+                if (imageTags.size() != 0) {
+                    //调参权重
+                    for (Tags tag : imageTags) {
+                        String value = tag.getValue();  //识别结果
+                        if (value.equals("名片") || value.equals("香烟") || value.equals("菜单") || value.equals("创可贴")) {
+                            result = "校园卡";
+                            return result;
+                        } else if (value.equals("钱")) {
+                            result = "身份证";
+                            return result;
+                        }
                     }
+                    result = imageTags.get(0).getValue();
                 }
-                result = imageTags.get(0).getValue();
             }
         } else {
             Logger.d("jsonResult is null!");
@@ -262,7 +292,7 @@ public class RecognizeUtil {
      * @param json
      * @return
      */
-    public static Map<String, String> parseCharJson(String json) {
+    public static Map<String, String> parseSchoolJson(String json) {
         Map<String, String> cardData = new HashMap<>();
         cardData.put("name", "未成功识别");
         cardData.put("number", "未成功识别");
@@ -300,8 +330,25 @@ public class RecognizeUtil {
         return cardData;
     }
 
+    public static IdCardData parseIdCardJson(String json) {
+        OCRIdCardResultJson resultJson = new Gson().fromJson(json, OCRIdCardResultJson.class);
+        OCRIdCardFaceDataJson faceDataJson= new Gson().fromJson(resultJson.getOutputs().get(0).getOutputValue().getDataValue(), OCRIdCardFaceDataJson.class);
+        IdCardData idCardData = IdCardData.getInstance();
+        idCardData.reset();
+        idCardData.setName(faceDataJson.getName());
+        idCardData.setSex(faceDataJson.getSex());
+        idCardData.setNation(faceDataJson.getNationality());
+        idCardData.setAddress(faceDataJson.getAddress());
+        idCardData.setNumber(faceDataJson.getNum());
+        return idCardData;
+    }
+
+
     public interface RecognizeListener {
         void onRecognize(Bitmap bitmap);
     }
+
+
+
 
 }

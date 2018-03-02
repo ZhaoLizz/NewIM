@@ -11,7 +11,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         tools:src="@drawable/about_top_bg"/>
 
     <LinearLayout
@@ -21,6 +21,7 @@
         android:background="@drawable/publish_text_background">
 
         <TextView
+            tools:text="姓名"
             android:id="@+id/publish_1st_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,7 +42,63 @@
             android:gravity="center_vertical"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            tools:text="无线鼠标"/>
+            tools:text="赵励志"/>
+    </LinearLayout>
+
+    <LinearLayout
+        tools:visibility="visible"
+        android:id="@+id/publish_sex_nation_layout"
+        android:layout_width="313dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_text_background"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/publish_sex"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/publish_sex_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="男"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/publish_nation"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/publish_nation_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="汉"/>
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -51,6 +108,7 @@
         android:background="@drawable/publish_text_background">
 
         <TextView
+            tools:text="证件号码"
             android:id="@+id/publish_2st_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -71,7 +129,7 @@
             android:gravity="center_vertical"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            tools:text="2018年3月1日 13:20"/>
+            tools:text="1234567878"/>
     </LinearLayout>
 
     <LinearLayout
@@ -81,6 +139,7 @@
         android:background="@drawable/publish_text_background">
 
         <TextView
+            tools:text="住址"
             android:id="@+id/publish_3st_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -101,7 +160,7 @@
             android:gravity="center_vertical"
             android:textColor="@android:color/black"
             android:textSize="18sp"
-            tools:text="中北大学厕所坑"/>
+            tools:text="安得广厦千万间,大庇天下寒士俱欢颜,风雨不动安如山"/>
     </LinearLayout>
 
     <LinearLayout
@@ -110,6 +169,7 @@
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/publish_text_background"
+        tools:visibility="visible"
         android:visibility="gone">
 
         <TextView
@@ -137,6 +197,7 @@
     </LinearLayout>
 
     <LinearLayout
+        tools:visibility="visible"
         android:id="@+id/publish_location_layout"
         android:layout_width="313dp"
         android:layout_height="60dp"

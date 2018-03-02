@@ -27,6 +27,7 @@ import butterknife.OnClick;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.BaseActivity;
 import cn.bmob.imdemo.bean.BitmapBodyJson;
+import cn.bmob.imdemo.bean.IdCardData;
 import cn.bmob.imdemo.bean.PhotoData;
 import cn.bmob.imdemo.bean.SchoolCardData;
 import cn.bmob.imdemo.bean.User;
@@ -44,6 +45,8 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
     TextView tv_time;
     @Bind(R.id.publish_time_layout)
     LinearLayout mPublishTimeLayout;
+    @Bind(R.id.publish_sex_nation_layout)
+    LinearLayout mPublishSexNationLayout;
     @Bind(R.id.publish_5st_r_tv)
     TextView tv_location;
     @Bind(R.id.publish_location_layout)
@@ -64,6 +67,11 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
     TextView tv_2st_l;
     @Bind(R.id.publish_3st_tv)
     TextView tv_3st_l;
+    @Bind(R.id.publish_sex_tv)
+    TextView mPublishSexTv;
+    @Bind(R.id.publish_nation_tv)
+    TextView mPublishNationTv;
+
 
     private Bitmap mPhotoBitmap;
     private File mPhotoFile;
@@ -73,6 +81,7 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
     private static int mPhotoCategory = -1;
     private static final int CATEGORY_ITEM = 1;
     private static final int CATEGORY_SCHOOL = 2;
+    private static final int CATEGORY_ID = 3;
 
 
     @Override
@@ -117,7 +126,7 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                 String curTime = format.format(curDate);
                 String location = "中北大学主楼";
 
-                String bitmapStr = RecognizeUtil.Bitmap2Str(bitmap, 100);
+                String bitmapStr = RecognizeUtil.bitmap2Str(bitmap, 100);
                 String jsonBody = new Gson().toJson(new BitmapBodyJson(bitmapStr));
                 String jsonResult = "";
                 try {
@@ -131,8 +140,8 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                 //识别校园卡信息
                 if (itemName.equals("校园卡")) {
                     String charJsonBody = " {\"image\":\" " + bitmapStr + "\", \"configure\":\"{\\\"min_size\\\" : 16,\\\"output_prob\\\" : true }\"}";
-                    jsonResult = RecognizeUtil.sendCharPost(charJsonBody);
-                    Map<String, String> cardData = RecognizeUtil.parseCharJson(jsonResult);
+                    jsonResult = RecognizeUtil.readTextImg(charJsonBody);
+                    Map<String, String> cardData = RecognizeUtil.parseSchoolJson(jsonResult);
                     if (cardData != null) {
                         updataSchoolCardUI(cardData.get("name"), cardData.get("number"), cardData.get("college"), curTime, "中北大学主楼");
                     }
@@ -147,6 +156,15 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                     schoolCardData.setTime(curDate);
                     schoolCardData.setPhoto(new BmobFile(mPhotoFile));
                     schoolCardData.setLocation(location);
+                } else if (itemName.equals("身份证")) {
+                    mPhotoCategory = CATEGORY_ID;
+                    jsonResult = RecognizeUtil.readIdCardImg(bitmapStr);    //返回的json
+                    IdCardData idCardData = RecognizeUtil.parseIdCardJson(jsonResult);  //识别的数据
+                    updataIdCardUI(idCardData.getName(), idCardData.getSex(), idCardData.getNation(), idCardData.getAddress(), idCardData.getNumber(), location, curTime);
+                    idCardData.setUser(BmobUser.getCurrentUser(User.class));
+                    idCardData.setTime(curDate);
+                    idCardData.setLocation(location);
+                    idCardData.setPhoto(new BmobFile(mPhotoFile));
                 } else {
                     //通识物品
                     mPhotoCategory = CATEGORY_ITEM;
@@ -196,6 +214,31 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
         });
     }
 
+    private void updataIdCardUI(final String name, final String sex, final String nation, final String address, final String num, final String location, final String time) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                tv_1st_r.setText(name);
+                tv_1st_l.setText("姓名");
+
+                mPublishSexNationLayout.setVisibility(View.VISIBLE);
+                mPublishSexTv.setText(sex);
+                mPublishNationTv.setText(nation);
+
+                tv_2st_r.setText(num);
+                tv_2st_l.setText("证件号码");
+
+                tv_3st_r.setText(address);
+                tv_3st_l.setText("住址");
+
+                mPublishLocationLayout.setVisibility(View.VISIBLE);
+                mPublishTimeLayout.setVisibility(View.VISIBLE);
+                tv_time.setText(time);
+                tv_location.setText(location);
+            }
+        });
+    }
+
     @OnClick(R.id.publish_good_publish_btn)
     public void onPublishClick() {
         Toast.makeText(this, "正在上传至服务器...", Toast.LENGTH_SHORT).show();
@@ -231,6 +274,29 @@ public class PublishActivity extends BaseActivity implements RecognizeUtil.Recog
                     public void done(BmobException e) {
                         if (e == null) {
                             SchoolCardData.getInstance().save(new SaveListener<String>() {
+                                @Override
+                                public void done(String s, BmobException e) {
+                                    if (e == null) {
+                                        Toast.makeText(PublishActivity.this, "招领启事发布成功!", Toast.LENGTH_SHORT).show();
+                                        finish();
+                                    } else {
+                                        Toast.makeText(PublishActivity.this, "上传失败!请检查网络状态", Toast.LENGTH_SHORT).show();
+                                        Logger.e(e.getMessage());
+                                    }
+                                }
+                            });
+                        } else {
+                            Logger.e(e.getMessage());
+                        }
+                    }
+                });
+                break;
+            case CATEGORY_ID:
+                IdCardData.getInstance().getPhoto().uploadblock(new UploadFileListener() {
+                    @Override
+                    public void done(BmobException e) {
+                        if (e == null) {
+                            IdCardData.getInstance().save(new SaveListener<String>() {
                                 @Override
                                 public void done(String s, BmobException e) {
                                     if (e == null) {
