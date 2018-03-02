@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity {
     private ConversationFragment conversationFragment;
     private SetFragment setFragment;
     private HomeFragment homeFragment;
+    private ListFragment listFragment;
     ContactFragment contactFragment;
     private ListFragment listFragment;
     private Fragment[] fragments;
@@ -128,14 +129,15 @@ public class MainActivity extends BaseActivity {
         homeFragment = new HomeFragment();
         //listFragment已加
         listFragment = ListFragment.newInstance();
-
         fragments = new Fragment[]{homeFragment, listFragment, conversationFragment, contactFragment};
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, listFragment)
                 .add(R.id.fragment_container, conversationFragment)
                 .add(R.id.fragment_container, contactFragment)
                 .add(R.id.fragment_container, homeFragment)
-                .hide(conversationFragment).hide(contactFragment).hide(listFragment)
+                .hide(conversationFragment)
+                .hide(contactFragment)
+                .hide(listFragment)
                 .show(homeFragment).commit();
     }
 
