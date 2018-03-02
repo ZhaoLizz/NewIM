@@ -50,4 +50,5 @@
     <string name="title_activity_user_info">UserInfoActivity</string>
     <string name="title_activity_publish">PublishActivity</string>
 
+    <string name="list_drop_menu_search">失物搜索</string>
 </resources>

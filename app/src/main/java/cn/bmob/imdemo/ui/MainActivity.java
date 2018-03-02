@@ -63,6 +63,7 @@ public class MainActivity extends BaseActivity {
     private HomeFragment homeFragment;
     private ListFragment listFragment;
     ContactFragment contactFragment;
+    private ListFragment listFragment;
     private Fragment[] fragments;
     private int index;  //当前fragment序号
     private int currentTabIndex;
@@ -126,13 +127,14 @@ public class MainActivity extends BaseActivity {
 //        setFragment = new SetFragment();
         contactFragment = new ContactFragment();
         homeFragment = new HomeFragment();
-        listFragment = new ListFragment();
+        //listFragment已加
+        listFragment = ListFragment.newInstance();
         fragments = new Fragment[]{homeFragment, listFragment, conversationFragment, contactFragment};
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, homeFragment)
                 .add(R.id.fragment_container, listFragment)
                 .add(R.id.fragment_container, conversationFragment)
                 .add(R.id.fragment_container, contactFragment)
+                .add(R.id.fragment_container, homeFragment)
                 .hide(conversationFragment)
                 .hide(contactFragment)
                 .hide(listFragment)
@@ -167,6 +169,7 @@ public class MainActivity extends BaseActivity {
      *
      * @param index 要显示的fragment序号
      */
+
     private void onTabIndex(int index) {
         if (currentTabIndex != index) {
             FragmentTransaction trx = getSupportFragmentManager().beginTransaction();

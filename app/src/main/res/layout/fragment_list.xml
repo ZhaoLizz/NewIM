@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include
         android:id="@+id/ll"
-        layout="@layout/include_navi"/>
+        layout="@layout/include_navi" />
 
-    <TextView
+    <cn.bmob.imdemo.ui.dropmenu.HorizontalDropDownMenu
+        android:id="@+id/list_fragment_horizontaldropdownmenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        tools:text="listFragment"/>
+        app:dddividerColor="@color/gray"
+        app:ddmaskColor="@color/mask_color"
+        app:ddmenuBackgroundColor="@color/white"
+        app:ddmenuMenuHeightPercent="0.5"
+        app:ddmenuSelectedIcon="@drawable/ic_selected_arrow_up_black_24dp"
+        app:ddmenuTextSize="13sp"
+        app:ddmenuUnselectedIcon="@drawable/ic_unseleted_down_black_24dp"
+        app:ddtextSelectedColor="@color/drop_down_menu_selected_color"
+        app:ddtextUnselectedColor="@color/drop_down_menu_unselected_color"
+        app:ddunderlineColor="@color/gray">
+
+    </cn.bmob.imdemo.ui.dropmenu.HorizontalDropDownMenu>
+
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rc_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+              
 
 </LinearLayout>

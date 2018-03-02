@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="cn.bmob.android:bmob-sdk-3.5.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bmob-sdk-3.5.6.aar/401e62240ee83289ebc5f51150cde4a7/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bmob-sdk-3.5.6.aar/401e62240ee83289ebc5f51150cde4a7/jars/libs/rxandroid-1.2.0.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bmob-sdk-3.5.6.aar/401e62240ee83289ebc5f51150cde4a7/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bmob-sdk-3.5.6.aar/401e62240ee83289ebc5f51150cde4a7/jars/libs/BmobSDK_3.5.6_20170705.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bmob-sdk-3.5.6.aar/401e62240ee83289ebc5f51150cde4a7/jars/libs/okio-1.12.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bmob-sdk-3.5.6.aar/401e62240ee83289ebc5f51150cde4a7/jars/libs/rxjava-1.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
