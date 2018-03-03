@@ -254,7 +254,6 @@ public class RecognizeUtil {
         return result.toString();
     }
 
-
     /**
      * 解析通识物品的Json
      */

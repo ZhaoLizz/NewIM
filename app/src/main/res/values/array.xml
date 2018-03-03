@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_array">
+        <item>生活用品</item>
+        <item>校园卡</item>
+        <item>身份证</item>
+    </string-array>
+</resources>

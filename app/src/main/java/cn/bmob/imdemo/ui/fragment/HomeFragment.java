@@ -13,9 +13,8 @@ import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +25,7 @@ import butterknife.OnClick;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.ParentWithNaviFragment;
 import cn.bmob.imdemo.ui.PublishActivity;
+import cn.bmob.imdemo.ui.SearchItemActivity;
 import cn.bmob.imdemo.util.PermissionUtil;
 import cn.bmob.imdemo.util.RecognizeUtil;
 
@@ -34,16 +34,15 @@ import cn.bmob.imdemo.util.RecognizeUtil;
  */
 
 public class HomeFragment extends ParentWithNaviFragment {
+    private Uri photoUri = null;
     private static final int REQUEST_CAMERA = 1;
     private static final String TAG = "HomeFragment";
     public static final String EXTRA_BITMAP_BYTE = "extra_bitmap_byte";
-    private Uri photoUri = null;
 
     @Bind(R.id.btn_home_camera_publish)
     TextView btn_home_camera_publish;
     @Bind(R.id.btn_home_search)
     TextView btn_home_search;
-
 
     @Override
     protected String title() {
@@ -79,29 +78,18 @@ public class HomeFragment extends ParentWithNaviFragment {
                     if (photoUri != null) {
                         try {
                             bitmap = BitmapFactory.decodeStream(getContext().getContentResolver().openInputStream(photoUri));
-                            bytes = RecognizeUtil.bitmap2bytes(bitmap,30);
+                            bytes = RecognizeUtil.bitmap2bytes(bitmap, 30);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
+
                     Intent intent = new Intent(getActivity(), PublishActivity.class);
-                    intent.putExtra(EXTRA_BITMAP_BYTE,bytes);
+                    intent.putExtra(EXTRA_BITMAP_BYTE, bytes);
                     startActivity(intent);
                 }
                 break;
         }
-    }
-
-    @Override
-    public void onStart() {
-//        EventBus.getDefault().register(this);
-        super.onStart();
-    }
-
-    @Override
-    public void onStop() {
-//        EventBus.getDefault().unregister(this);
-        super.onStop();
     }
 
     @OnClick(R.id.btn_home_camera_publish)
@@ -127,4 +115,15 @@ public class HomeFragment extends ParentWithNaviFragment {
         startActivityForResult(intent, REQUEST_CAMERA);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
+
+    @OnClick(R.id.btn_home_search)
+    public void onSearchClick() {
+        Intent intent = new Intent(getActivity(), SearchItemActivity.class);
+        startActivity(intent);
+    }
 }

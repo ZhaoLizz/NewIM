@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/publish_background"
                 android:orientation="vertical">
 
     <include
@@ -12,23 +13,23 @@
         android:id="@+id/btn_home_camera_publish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/ll"
         android:drawableTop="@drawable/home_camera"
         android:gravity="center"
-        android:text="@string/home_camera"/>
+        android:text="@string/home_camera"
+        android:layout_above="@+id/btn_home_search"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"/>
 
 
     <TextView
         android:id="@+id/btn_home_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btn_home_camera_publish"
         android:drawableTop="@drawable/home_serach"
         android:gravity="center"
-        android:text="@string/home_search"/>
+        android:text="@string/home_search"
+        android:layout_marginBottom="134dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

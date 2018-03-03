@@ -101,6 +101,8 @@
             android:label="@string/title_activity_publish"
             android:theme="@style/AppTheme">
         </activity>
+        <activity android:name=".ui.SearchItemActivity">
+        </activity>
     </application>
 
 </manifest>
