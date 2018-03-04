@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="日常用品"
+        android:id="@+id/menu_item_life"
+        android:icon="@mipmap/icon_life"/>
+    <item
+        android:title="身份证"
+        android:id="@+id/menu_item_id"
+        android:icon="@mipmap/icon_idcard"/>
+
+    <item
+        android:title="校园卡"
+        android:id="@+id/menu_item_school"
+        android:icon="@mipmap/icon_schoolcard"/>
+</menu>

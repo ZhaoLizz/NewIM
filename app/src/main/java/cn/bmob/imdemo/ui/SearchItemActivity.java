@@ -1,68 +1,67 @@
 package cn.bmob.imdemo.ui;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.BaseActivity;
+import cn.bmob.imdemo.ui.fragment.SearchIdCardFragment;
+import cn.bmob.imdemo.ui.fragment.SearchLifeFragment;
 
-public class SearchItemActivity extends BaseActivity implements AdapterView.OnItemSelectedListener {
+public class SearchItemActivity extends BaseActivity {
+    private SearchLifeFragment mSearchLifeFragment = SearchLifeFragment.newInstance();
+    private SearchIdCardFragment mSearchIdCardFragment = SearchIdCardFragment.newInstance();
 
-
-    @Bind(R.id.search_spinner)
-    Spinner mSearchSpinner;
-    @Bind(R.id.search_item_name)
-    EditText mSearchItemName;
-    @Bind(R.id.search_item_time)
-    EditText mSearchItemTime;
-    @Bind(R.id.search_item_location)
-    TextView mSearchItemLocation;
-    @Bind(R.id.publish_good_publish_btn)
-    Button mPublishGoodPublishBtn;
+    @Bind(R.id.search_item_fragment_coninter)
+    FrameLayout mSearchItemFragmentConinter;
+    @Bind(R.id.search_item_bottom)
+    BottomNavigationView mSearchItemBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_item);
-        ButterKnife.bind(this);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.search_item_fragment_coninter, mSearchLifeFragment)
+                .add(R.id.search_item_fragment_coninter, mSearchIdCardFragment)
+//                .add(R.id.search_item_fragment_coninter, SearchSchoolCardFragment.newInstance())
+                .commit();
     }
 
     @Override
     protected void initView() {
         super.initView();
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.item_array, android.R.layout.simple_spinner_dropdown_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSearchSpinner.setAdapter(arrayAdapter);
-        mSearchSpinner.setOnItemSelectedListener(this);
+        mSearchItemBottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_item_life:
+                        switchFragment(mSearchLifeFragment);
+                        break;
+                    case R.id.menu_item_id:
+                        switchFragment(mSearchIdCardFragment);
+                        break;
+                    case R.id.menu_item_school:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    private void switchFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .replace(R.id.search_item_fragment_coninter, fragment)
+                .commit();
     }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (i) {
-            //生活用品
-            case 0:
-
-                break;
-            //校园卡
-            case 1:
-                break;
-            //身份证
-            case 2:
-                break;
-
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-    }
 }

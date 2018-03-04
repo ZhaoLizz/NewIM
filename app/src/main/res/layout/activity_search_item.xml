@@ -1,178 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@drawable/publish_background"
-              android:orientation="vertical">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/publish_background">
 
-    <Spinner
-        android:id="@+id/search_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="53dp"
-        android:layout_gravity="center_horizontal"
-        android:entries="@array/item_array"
-        android:spinnerMode="dropdown">
+    <FrameLayout
+        android:id="@+id/search_item_fragment_coninter"
+        android:layout_above="@+id/search_item_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
 
-    </Spinner>
-
-    <ImageView
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        tools:src="@drawable/about_top_bg"/>
-
-    <LinearLayout
-        android:layout_width="313dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/publish_text_background">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/publish_name"
-            android:textSize="15sp"
-            />
-
-        <EditText
-            android:id="@+id/search_item_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="35dp"
-            android:layout_weight="3"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="赵励志"/>
-    </LinearLayout>
-
-    <!--<LinearLayout
-        android:id="@+id/publish_sex_nation_layout"
-        android:layout_width="313dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/publish_text_background"
-        android:visibility="gone"
-        tools:visibility="gone">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/publish_sex"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/publish_sex_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="35dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="男"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/publish_nation"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/publish_nation_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="35dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="汉"/>
-    </LinearLayout>-->
-
-    <LinearLayout
-        android:layout_width="313dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/publish_text_background">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/search_time"
-            android:textSize="15sp"/>
-
-        <EditText
-            android:id="@+id/search_item_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="35dp"
-            android:layout_weight="3"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="1234567878"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="313dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/publish_text_background">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/search_location"
-            android:textSize="15sp"/>
-
-        <TextView
-            android:id="@+id/search_item_location"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="35dp"
-            android:layout_weight="3"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            tools:text="安得广厦千万间,大庇天下寒士俱欢颜,风雨不动安如山"/>
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/publish_good_publish_btn"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/search_item_bottom"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/publish"/>
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:menu="@menu/menu_search_item">
+    </android.support.design.widget.BottomNavigationView>
 
 
-</LinearLayout>
+</RelativeLayout>
+
+

@@ -25,17 +25,8 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="960341fafa40e1af993fb6a39e32d1b8e08d2eb5">
+        sha1="d2b4e30c5fb4176b386dff74d967d40477676b8b">
         <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\a6100890\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
-        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.11.0_a297b45a47590c9ea0beba0284efc4df1bb96beb\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -45,15 +36,6 @@
         revision="26.0.0"
         sha1="acd93e3727886196f9b8434279ff445ba8611186">
         <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\2\sun.misc.BASE64Decoder_098ad19a3a13745f3711b4a0988f47feee07176e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\a6100890\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.6.0_afd6bbf1b6d64fc42ded05061272239d5a270081\classes.dex" />
     </item>
 
 </items>
