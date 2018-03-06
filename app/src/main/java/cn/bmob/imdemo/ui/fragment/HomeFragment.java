@@ -13,7 +13,6 @@ import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
@@ -23,7 +22,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.imdemo.R;
-import cn.bmob.imdemo.base.ParentWithNaviFragment;
+import cn.bmob.imdemo.base.BaseFragment;
 import cn.bmob.imdemo.ui.PublishActivity;
 import cn.bmob.imdemo.ui.SearchItemActivity;
 import cn.bmob.imdemo.util.PermissionUtil;
@@ -33,7 +32,9 @@ import cn.bmob.imdemo.util.RecognizeUtil;
  * Created by a6100890 on 2018/2/21.
  */
 
-public class HomeFragment extends ParentWithNaviFragment {
+public class HomeFragment extends BaseFragment {
+    @Bind(R.id.btn_home_recruit_notice)
+    TextView mBtnHomeRecruitNotice;
     private Uri photoUri = null;
     private static final int REQUEST_CAMERA = 1;
     private static final String TAG = "HomeFragment";
@@ -44,16 +45,10 @@ public class HomeFragment extends ParentWithNaviFragment {
     @Bind(R.id.btn_home_search)
     TextView btn_home_search;
 
-    @Override
-    protected String title() {
-        return "首页";
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
-        initNaviView();
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, rootView);
         PermissionUtil.checkPerssion(getContext(), Manifest.permission.CAMERA, REQUEST_CAMERA);
         return rootView;
@@ -125,5 +120,10 @@ public class HomeFragment extends ParentWithNaviFragment {
     public void onSearchClick() {
         Intent intent = new Intent(getActivity(), SearchItemActivity.class);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.btn_home_recruit_notice)
+    public void onRecruitClicked() {
+
     }
 }

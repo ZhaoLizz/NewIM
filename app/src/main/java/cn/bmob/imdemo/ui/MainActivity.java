@@ -22,7 +22,7 @@ import cn.bmob.imdemo.event.RefreshEvent;
 import cn.bmob.imdemo.ui.fragment.ContactFragment;
 import cn.bmob.imdemo.ui.fragment.ConversationFragment;
 import cn.bmob.imdemo.ui.fragment.HomeFragment;
-import cn.bmob.imdemo.ui.fragment.ListFragment;
+import cn.bmob.imdemo.ui.fragment.ListContextFragment;
 import cn.bmob.imdemo.ui.fragment.SetFragment;
 import cn.bmob.imdemo.util.IMMLeaks;
 import cn.bmob.newim.BmobIM;
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
     private ConversationFragment conversationFragment;
     private SetFragment setFragment;
     private HomeFragment homeFragment;
-    private ListFragment listFragment;
+    private ListContextFragment listFragment;
     ContactFragment contactFragment;
     private Fragment[] fragments;
     private int index;  //当前fragment序号
@@ -126,7 +126,7 @@ public class MainActivity extends BaseActivity {
 //        setFragment = new SetFragment();
         contactFragment = new ContactFragment();
         homeFragment = new HomeFragment();
-        listFragment = new ListFragment();
+        listFragment = new ListContextFragment();
         fragments = new Fragment[]{homeFragment, listFragment, conversationFragment, contactFragment};
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, homeFragment)

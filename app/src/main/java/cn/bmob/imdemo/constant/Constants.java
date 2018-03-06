@@ -41,4 +41,11 @@ public class Constants {
     public static final String CLOUDAPI_CA_HEADER_TO_SIGN_PREFIX_SYSTEM = "X-Ca-";
     //签名版本号
     public static final String CLOUDAPI_CA_VERSION_VALUE = "1";
+
+    public static final String EXTRA_PHOTO_DATA = "extra_phoho_data";
+    public static final String EXTRA_ID_CARD = "extra_id_card";
+    public static final String EXTRA_SCHOOL_CARD = "extra_school_card";
+
+    public static final String CATEGORY_PHOHO_DATA = "category_phoho_data";
+
 }

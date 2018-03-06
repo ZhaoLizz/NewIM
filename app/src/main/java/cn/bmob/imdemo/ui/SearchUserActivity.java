@@ -111,8 +111,6 @@ public class SearchUserActivity extends ParentWithNaviActivity {
                         }
                     }
                 }
-
-
         );
     }
 

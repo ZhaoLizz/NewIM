@@ -102,12 +102,13 @@
             tools:text="安得广厦千万间,大庇天下寒士俱欢颜,风雨不动安如山"/>
     </LinearLayout>
 
-
     <Button
         android:id="@+id/search_item_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/publish"/>
+        android:background="@drawable/btn_backfground"
+        android:text="@string/home_search"
+        android:textSize="17dp"/>
 </LinearLayout>

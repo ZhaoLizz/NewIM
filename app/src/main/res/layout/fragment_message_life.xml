@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/publish_background"
+              android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/message_life_photo"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        tools:src="@drawable/about_top_bg"/>
+
+    <LinearLayout
+        android:layout_width="313dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_text_background">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/publish_name"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/search_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="赵励志"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="313dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_text_background">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/search_time"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/search_item_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="1234567878"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="313dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/publish_text_background">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/search_location"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/search_item_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="35dp"
+            android:layout_weight="3"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="安得广厦千万间,大庇天下寒士俱欢颜,风雨不动安如山"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/search_item_btn"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_backfground"
+        android:text="@string/message_contact_user"
+        android:textSize="17dp"/>
+</LinearLayout>

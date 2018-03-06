@@ -76,6 +76,8 @@ public class SearchIdCardFragment extends BaseFragment {
         BmobQuery<IdCardData> query2 = new BmobQuery<>();
         query2.addWhereEqualTo("name", name);
         List<BmobQuery<IdCardData>> queries = new ArrayList<>();
+        queries.add(query1);
+        queries.add(query2);
         BmobQuery<IdCardData> mainQuery = new BmobQuery<>();
         mainQuery.or(queries);
         mainQuery.findObjects(new FindListener<IdCardData>() {

@@ -4,6 +4,7 @@
                 android:layout_height="match_parent">
 
     <LinearLayout
+        android:background="@drawable/publish_background"
         android:id="@+id/main_bottom"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -12,6 +13,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:background="@color/transparent"
             android:id="@+id/btn_home"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -27,6 +29,7 @@
             android:textSize="12sp"/>
 
         <TextView
+            android:background="@color/transparent"
             android:id="@+id/btn_list"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -42,6 +45,7 @@
             android:textSize="12sp"/>
 
         <RelativeLayout
+            android:background="@color/transparent"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -77,6 +81,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:background="@color/transparent"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">

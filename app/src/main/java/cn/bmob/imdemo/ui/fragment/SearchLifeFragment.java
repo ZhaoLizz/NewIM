@@ -1,5 +1,6 @@
 package cn.bmob.imdemo.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.orhanobut.logger.Logger;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,6 +24,7 @@ import butterknife.OnClick;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.BaseFragment;
 import cn.bmob.imdemo.bean.PhotoData;
+import cn.bmob.imdemo.ui.SearchResultListActivity;
 import cn.bmob.imdemo.util.TimeUtil;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
@@ -33,6 +36,7 @@ import cn.bmob.v3.listener.FindListener;
 
 public class SearchLifeFragment extends BaseFragment {
     private Calendar mCalendar = Calendar.getInstance();
+    public static final String EXTRA_LIST = "extra_list";
 
     @Bind(R.id.search_item_name)
     EditText mSearchItemName;
@@ -77,20 +81,18 @@ public class SearchLifeFragment extends BaseFragment {
     }
 
     private PhotoData queryItem(String name, String time) {
-//        PhotoData photoData = PhotoData.getInstance();
         BmobQuery<PhotoData> query = new BmobQuery<>();
-        query.addWhereContains("itemName", "子");
-//        query.addWhereEqualTo("itemName", name);
-
-//        for (String s : name.split("")) {
-//        }
-//        query.addWhereLessThan("time", time);
-
+        query.addWhereEqualTo("itemName", name);
         query.findObjects(new FindListener<PhotoData>() {
             @Override
             public void done(List<PhotoData> list, BmobException e) {
                 if (e == null) {
                     Logger.d(Arrays.toString(list.toArray()) + "\n" + list.size());
+                    if (list.size() > 1) {
+                        Intent intent = new Intent(getContext(), SearchResultListActivity.class);
+                        intent.putExtra(EXTRA_LIST, (Serializable)list);
+                        startActivity(intent);
+                    }
                 } else {
                     Logger.e(e.getMessage());
                 }

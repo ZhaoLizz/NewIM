@@ -5,31 +5,38 @@
                 android:background="@drawable/publish_background"
                 android:orientation="vertical">
 
-    <include
-        android:id="@+id/ll"
-        layout="@layout/include_navi"/>
-
     <TextView
         android:id="@+id/btn_home_camera_publish"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_home_recruit_notice"
+        android:layout_toStartOf="@+id/btn_home_search"
         android:drawableTop="@drawable/home_camera"
         android:gravity="center"
-        android:text="@string/home_camera"
-        android:layout_above="@+id/btn_home_search"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="24dp"/>
+        android:text="@string/home_camera"/>
 
 
     <TextView
         android:id="@+id/btn_home_search"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_home_recruit_notice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp"
         android:drawableTop="@drawable/home_serach"
         android:gravity="center"
-        android:text="@string/home_search"
-        android:layout_marginBottom="134dp"
+        android:text="@string/home_search"/>
+
+    <TextView
+        android:id="@+id/btn_home_recruit_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="130dp"
+        android:layout_marginEnd="18dp"
+        android:drawableTop="@drawable/home_recruit"
+        android:gravity="center"
+        android:text="@string/home_recruit_notice"/>
 
 </RelativeLayout>

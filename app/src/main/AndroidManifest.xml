@@ -103,6 +103,10 @@
         </activity>
         <activity android:name=".ui.SearchItemActivity">
         </activity>
+        <activity android:name=".ui.SearchResultListActivity">
+        </activity>
+        <activity android:name=".ui.ItemMessageActivity">
+        </activity>
     </application>
 
 </manifest>

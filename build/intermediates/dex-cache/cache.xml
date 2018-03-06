@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\a6100890\.android\build-cache\3c9f6b8ad8ac27d417c408d486b06c640afd5e04\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
+        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_97c1504f309fbb83f5851749550eec2f6c74cc22\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
@@ -25,17 +34,8 @@
         jumboMode="true"
         optimize="true"
         revision="26.0.0"
-        sha1="2aa536f0de21ed4da211ff573161ae3a3203c33a">
+        sha1="6cfc5a09e19d950af190c725f6e4bcea99fc270d">
         <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_aa16d578db41378a88e6e0f9fef1b18b80f56298\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\a6100890\.android\build-cache\3c9f6b8ad8ac27d417c408d486b06c640afd5e04\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.0"
-        sha1="7f2420506110902f033406b25697cf97ee8c38b2">
-        <dex dex="C:\Users\a6100890\AndroidStudioProjects\bmob-newim-demo\NewIM\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_97c1504f309fbb83f5851749550eec2f6c74cc22\classes.dex" />
     </item>
     <item
         is-multidex="true"

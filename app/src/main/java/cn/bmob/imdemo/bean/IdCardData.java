@@ -1,5 +1,6 @@
 package cn.bmob.imdemo.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import cn.bmob.v3.BmobObject;
@@ -9,7 +10,7 @@ import cn.bmob.v3.datatype.BmobFile;
  * Created by a6100890 on 2018/3/2.
  */
 
-public class IdCardData extends BmobObject {
+public class IdCardData extends BmobObject implements Serializable{
     private BmobFile mPhoto;
     private String name;
     private String sex;

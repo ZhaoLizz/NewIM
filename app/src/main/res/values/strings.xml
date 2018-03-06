@@ -18,8 +18,9 @@
     <string name="main_tab_contact">联系人</string>
     <string name="mian_tab_set">设置</string>
 
-    <string name="home_camera">拍照发布</string>
-    <string name="home_search">搜索</string>
+    <string name="home_camera">发布失物招领</string>
+    <string name="home_recruit_notice">发布寻物启事</string>
+    <string name="home_search">搜索失物列表</string>
 
     <string name="add_avator">头像</string>
     <string name="add_nick">昵称</string>
@@ -56,7 +57,10 @@
     <string name="search_location">丢失地点</string>
     <string name="search_name">姓名</string>
     <string name="search_number">证件号码</string>
+    <string name="search_school_number">学号</string>
     <string name="search_time_hint">点击选择时间</string>
+
+    <string name="message_contact_user">联系拾取者</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_user_info">UserInfoActivity</string>

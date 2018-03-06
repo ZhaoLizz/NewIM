@@ -43,7 +43,6 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="313dp"
         android:layout_height="60dp"
@@ -74,7 +73,6 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="313dp"
         android:layout_height="60dp"
@@ -92,7 +90,6 @@
             android:textSize="15sp"/>
 
         <TextView
-            android:hint="@string/search_time_hint"
             android:id="@+id/search_idcard_time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -100,6 +97,7 @@
             android:layout_marginLeft="35dp"
             android:layout_weight="3"
             android:gravity="center_vertical"
+            android:hint="@string/search_time_hint"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             tools:text="1234567878"/>
@@ -136,11 +134,13 @@
 
     <Button
         android:id="@+id/search_idcard_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/publish"/>
+        android:background="@drawable/btn_backfground"
+        android:text="@string/home_search"
+        android:textSize="17dp"/>
 
 
 </LinearLayout>

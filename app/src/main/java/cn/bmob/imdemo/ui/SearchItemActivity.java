@@ -12,12 +12,15 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.bmob.imdemo.R;
 import cn.bmob.imdemo.base.BaseActivity;
+import cn.bmob.imdemo.ui.fragment.SchoolCardFragment;
 import cn.bmob.imdemo.ui.fragment.SearchIdCardFragment;
 import cn.bmob.imdemo.ui.fragment.SearchLifeFragment;
+import cn.bmob.imdemo.ui.fragment.SearchSchoolCardFragment;
 
 public class SearchItemActivity extends BaseActivity {
     private SearchLifeFragment mSearchLifeFragment = SearchLifeFragment.newInstance();
     private SearchIdCardFragment mSearchIdCardFragment = SearchIdCardFragment.newInstance();
+    private SearchSchoolCardFragment mSearchSchoolCardFragment = SearchSchoolCardFragment.newInstance();
 
     @Bind(R.id.search_item_fragment_coninter)
     FrameLayout mSearchItemFragmentConinter;
@@ -31,7 +34,8 @@ public class SearchItemActivity extends BaseActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.search_item_fragment_coninter, mSearchLifeFragment)
                 .add(R.id.search_item_fragment_coninter, mSearchIdCardFragment)
-//                .add(R.id.search_item_fragment_coninter, SearchSchoolCardFragment.newInstance())
+                .add(R.id.search_item_fragment_coninter, mSearchSchoolCardFragment)
+                .replace(R.id.search_item_fragment_coninter, mSearchLifeFragment)
                 .commit();
     }
 
@@ -49,6 +53,7 @@ public class SearchItemActivity extends BaseActivity {
                         switchFragment(mSearchIdCardFragment);
                         break;
                     case R.id.menu_item_school:
+                        switchFragment(mSearchSchoolCardFragment);
                         break;
                 }
                 return true;
